@@ -12,7 +12,7 @@ export default function OrderSummary() {
                 <section className="summary__info">
                     <h3 className="summary__name">Premium roasted coffee</h3>
                     <p className="summary__item-desc">Medium roast</p>
-                    <p className="summary__item-desc">$10.00/ea</p>
+                    <p className="summary__item-desc">$20.00/ea</p>
                 </section>
                 <h3 className="summary__price">$800.00</h3>
             </section>
@@ -46,9 +46,9 @@ export default function OrderSummary() {
                 <section className="summary__subheading">Taxes</section>
                 <section className="summary__price">$102.36</section>
             </section>
-            <section className="summary__total">
+            <section className="summary__total summary__total--bold">
                 <section className="summary__subheading">Total</section>
-                <section className="summary__price">CAD $1,852.36</section>
+                <section className="summary__price summary__price--bold"><span className="summary__currency">CAD</span> $1,852.36</section>
             </section>
         </section>
     )
