@@ -41,6 +41,8 @@ export default function ChatBot(){
 
     const chatRef = useRef(null);
 
+    const secondRef = useRef([]);
+
     const bindInput = (e) => {
         setInputValue(e.target.value);
     };
@@ -79,47 +81,41 @@ export default function ChatBot(){
                 role: 'assistant',
                 message: 'Has the coffee been opened?'
             });
-            chatRef.current = 'Has the coffee been opened?';
+            secondRef.current.push('Has the coffee been opened?');
         }
-        else if(chatRef.current === 'Has the coffee been opened?'){
-            newChatHistory.push({
-                role: 'user',
-                message: e.target['user-input'].value
-            });
-            newChatHistory.push({
-                role: 'assistant',
-                message: 'Ok, great! Since you are a valued customer, would you like a refund or credit towards your next purchase?'
-            });
-            chatRef.current = 'Ok, great! Since you are a valued customer, would you like a refund or credit towards your next purchase?';
-        }
-        else if(chatRef.current === 'Ok, great! Since you are a valued customer, would you like a refund or credit towards your next purchase?'){
-            newChatHistory.push({
-                role: 'user',
-                message: e.target['user-input'].value
-            });
-            newChatHistory.push({
-                role: 'assistant',
-                message: 'Do you have any questions?'
-            });
-            chatRef.current = 'Do you have any questions?';
-        }
-        else if(chatRef.current === 'Do you have any questions?'){
-            newChatHistory.push({
-                role: 'user',
-                message: e.target['user-input'].value
-            });
-            newChatHistory.push({
-                role: 'assistant',
-                message: 'You’re welcome, have a great day! '
-            });
-            chatRef.current = 'You’re welcome, have a great day! ';
-        }
-        else{
-            errorRef.current.input = {
-                isValid: false,
-                message: 'Must be a number'
-            };
-        }
+        // else if(chatRef.current === 'Has the coffee been opened?'){
+        //     newChatHistory.push({
+        //         role: 'user',
+        //         message: e.target['user-input'].value
+        //     });
+        //     newChatHistory.push({
+        //         role: 'assistant',
+        //         message: 'Ok, great! Since you are a valued customer, would you like a refund or credit towards your next purchase?'
+        //     });
+        //     chatRef.current = 'Ok, great! Since you are a valued customer, would you like a refund or credit towards your next purchase?';
+        // }
+        // else if(chatRef.current === 'Ok, great! Since you are a valued customer, would you like a refund or credit towards your next purchase?'){
+        //     newChatHistory.push({
+        //         role: 'user',
+        //         message: e.target['user-input'].value
+        //     });
+        //     newChatHistory.push({
+        //         role: 'assistant',
+        //         message: 'Do you have any questions?'
+        //     });
+        //     chatRef.current = 'Do you have any questions?';
+        // }
+        // else if(chatRef.current === 'Do you have any questions?'){
+        //     newChatHistory.push({
+        //         role: 'user',
+        //         message: e.target['user-input'].value
+        //     });
+        //     newChatHistory.push({
+        //         role: 'assistant',
+        //         message: 'You’re welcome, have a great day! '
+        //     });
+        //     chatRef.current = 'You’re welcome, have a great day! ';
+        // }
         setChatHistory(newChatHistory);
         e.target.reset();
 
@@ -148,10 +144,6 @@ export default function ChatBot(){
         });
         setChatHistory(newChatHistory);
     };
-
-    const removeError = () => {
-        errorRef.current = {};
-    }
 
     const handleCheckboxes = (e) => {
         e.preventDefault();
@@ -230,6 +222,13 @@ export default function ChatBot(){
                                         <div className='message__checkbox-container'><input className='message__checkbox' type="checkbox" id='check-3' name='check' value='Blast blend coffee' /><label htmlFor="check-3"> Blast blend coffee</label></div>
                                         <button className='button--vector'><span className='icon--vector'></span></button>
                                     </form>
+                                </div>
+                            }
+                            {
+                                secondRef.current.length === 1  &&
+                                <div className='message__buttons'>
+                                    <button className='message__button' onClick={() => handleIsOpen('Yes, it is opened')}>Yes, it is opened</button>
+                                    <button className='message__button' onClick={() => handleIsOpen('No, it is unopened')}>No, it is unopened</button>
                                 </div>
                             }
                             <span ref={bottomScroll}></span>
