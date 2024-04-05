@@ -1,0 +1,56 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.order-header {
+    display: flex;
+    padding: 1.625rem 2.375rem;
+    justify-content: space-between;
+
+    &__container {
+        display: flex;
+        align-items: center;
+    }
+
+    &__info {
+        font-size: 1.75rem;
+    }
+
+    &__image {
+        margin-right: 1rem;
+    }
+
+    &__po {
+        margin: 0;
+        font-size: 1rem;
+        text-align: left;
+        margin-top: 0.25rem;
+    }
+
+    &__order {
+        font-size: 1.75rem;
+        margin: 0;
+        text-align: left;
+    }
+
+
+    &__btn {
+        margin-left: 1rem;
+        height: 3.5rem;
+        width: 8.5rem;
+        border: 1px solid $Background-grey;
+        border-radius: 0.3rem;
+        background-color: $Primary-white;
+        color: $Primary-blue;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    &__icon {
+        color: $Primary-blue;
+        margin-left: 0.5rem;
+    }
+
+
+
+}
