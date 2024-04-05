@@ -1,0 +1,21 @@
+
+.footer{
+    font-family: 'Roboto', sans-serif;
+    padding: 0 2.25rem 1.3125rem 2.25rem;
+    background-color: #f5f5f5;
+
+    &__list{
+        width: 100%;
+        border-top: 1px solid #DEDEDE;
+        list-style: none;
+        display: flex;
+        padding-top: 1.3125rem;
+        gap: 1.3125rem;
+    }
+
+    &__link{
+        text-decoration: none;
+        color: #1879B9;
+        font-size: 0.875rem;
+    }
+}

@@ -1,9 +1,8 @@
 import './App.scss';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Order from "./pages/Order/Order";
-import ChatBot from "./pages/ChatBot/ChatBot";
 import NavBar from "./components/NavBar/NavBar";
-
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -12,8 +11,8 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Order />}></Route>
-          <Route path="/chatbot" element={<ChatBot />}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
