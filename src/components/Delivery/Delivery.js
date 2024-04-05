@@ -12,11 +12,11 @@ export default function Delivery() {
             </section>
             <section className="delivery__container">
                 <p className="delivery__subheading delivery__subheading--blue">Show Details</p>
-                <img src={down} alt="down marker" className="delivery__icon" />
+                <img src={down} alt="down marker" className="delivery__icon delivery__icon--blue" />
             </section>
             <section className="delivery__container">
                 <img src={line} alt="line marker" className="delivery__icon" />
-                <p className="delivery__subheading">Oct 14</p>
+                <p className="delivery__subheading delivery__subheading--grey">Oct 14</p>
             </section>
             <section className="delivery__container">
                 <p className="delivery__subheading">Haven't recieved your delivery?

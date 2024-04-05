@@ -32,9 +32,14 @@
     &__subheading {
         margin: 0;
 
+        &--grey {
+            color: $Secondary-grey;
+        }
+
         &--blue {
             color: $Primary-blue;
         }
+
     }
 
     &__icon {
