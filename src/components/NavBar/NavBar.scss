@@ -1,0 +1,55 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.nav-bar {
+    display: flex;
+    padding: 2rem 2.375rem;
+    align-items: center;
+    align-self: stretch;
+    justify-content: space-between;
+    background-color: $Primary-white;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        align-self: stretch;
+        justify-content: center;
+    }
+
+    &__logo {
+        width: 8rem;
+        height: 4rem
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1.5rem;
+
+    }
+
+    &__title {
+        margin-left: 3rem;
+    }
+
+    &__avatar {
+        height: 2.5rem;
+    }
+
+    &__chevron {
+        margin: 1rem;
+    }
+
+    &__storeBtn {
+        height: 3.25rem;
+        width: 8rem;
+        font-size: 1rem;
+        color: $Primary-white;
+        border-radius: 0.3rem;
+        background-color: $Primary-blue;
+        border: 1px solid $Primary-blue;
+    }
+
+}

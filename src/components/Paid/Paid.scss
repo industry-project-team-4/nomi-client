@@ -1,0 +1,21 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.paid {
+    background-color: $Primary-white;
+    border-radius: 0.5rem;
+    padding: 1.325rem;
+    text-align: left;
+
+    &__title {
+        margin: 0;
+    }
+
+    &__body {
+        margin: 0.5rem 0 0 0;
+        color: $Secondary-grey
+    }
+
+}
