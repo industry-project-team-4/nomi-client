@@ -28,10 +28,7 @@ export default function OrderHeader() {
                     <img src={chevron} alt="arrow down" className="order-header__icon" />
                 </button>
             </section>
-            {   
-                isOpen &&
-                <ChatBot toggleChat={toggleChat}/>
-            }
+            <ChatBot isOpen={isOpen} toggleChat={toggleChat}/>
         </section>
 
     )
