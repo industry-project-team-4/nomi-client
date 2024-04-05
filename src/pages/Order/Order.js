@@ -1,22 +1,17 @@
-<<<<<<< HEAD
 import Delivery from "../../components/Delivery/Delivery";
-import NavBar from "../../components/NavBar/NavBar";
-=======
 import OrderHeader from "../../components/OrderHeader/OrderHeader";
->>>>>>> develop
 import "./Order.scss"
 
 export default function Order() {
     return (
-<<<<<<< HEAD
-        <>
-            <NavBar />
-            <Delivery />
-        </>
-=======
         <main>
             <OrderHeader />
+            <section className="container">
+                <Delivery />
+            </section>
+            <section className="container">
+
+            </section>
         </main>
->>>>>>> develop
     )
 }
