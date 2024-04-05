@@ -1,0 +1,28 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+main {
+    box-sizing: border-box;
+    margin: 0;
+    background-color: rgba(222, 222, 222, 0.336);
+    @include padding;
+}
+
+article {
+    display: flex;
+}
+
+.container {
+    width: 50%;
+    margin: 0 1.625rem 1.625rem 0;
+
+}
+
+.container:last-child {
+    margin: 0 0 1.625rem 0;
+}
+
+.payment {
+    display: flex
+}

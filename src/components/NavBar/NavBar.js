@@ -8,7 +8,7 @@ import chevronDown from "../../assets/chevronDown.svg"
 export default function NavBar() {
     return (
         <>
-            <nav nav-bar className="nav-bar">
+            <nav className="nav-bar">
                 <section className="nav-bar__container">
                     <img src={logo} alt="company logo" className="nav-bar__logo" />
                     <h2 className="nav-bar__title">Orders</h2>
