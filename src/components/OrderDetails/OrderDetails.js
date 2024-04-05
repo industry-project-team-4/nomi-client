@@ -31,9 +31,13 @@ export default function OrderDetails() {
                 <section className="order-details__container">
                     <section className="order-details__payment">
                         <h3 className="order-details__subheading">Payment</h3>
-                        <img src={visa} alt="visa logo" className="order-details__icon" />
-                        <p className="order-details__body">ending with 1234</p>
-                        <p className="order-details__body">-$1,852.36</p>
+                        <section className="order-details__info-container">
+                            <img src={visa} alt="visa logo" className="order-details__icon" />
+                            <section className="order-details__right">
+                                <p className="order-details__body">ending with 1234</p>
+                                <p className="order-details__body">-$1,852.36</p>
+                            </section>
+                        </section>
                     </section>
                     <section className="order-details__billing">
                         <h3 className="order-details__subheading">Billing address</h3>
