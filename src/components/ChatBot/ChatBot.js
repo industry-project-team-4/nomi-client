@@ -33,7 +33,6 @@ export default function ChatBot(){
     const isInputDisabled= useRef(true);
     
     const [inputValue, setInputValue] = useState(''); 
-    console.log(inputValue);
 
     const [chatHistory, setChatHistory] = useState([...initial]);
 
@@ -56,7 +55,6 @@ export default function ChatBot(){
                 role: 'user',
                 message: answer + ''
             });
-            console.log('Thank you for confirming! What is the reason for your return?' === chatRef.current);
             if(checkboxesRef.current.length){
                 const item = checkboxesRef.current.pop();
                 newChatHistory.push({
@@ -65,24 +63,21 @@ export default function ChatBot(){
                 });
             }
             else if(!chatRef.current){
-                newChatHistory.push({
-                role: 'assistant',
-                message: 'Thank you for confirming! What is the reason for your return?'
-            });
-            chatRef.current = 'Thank you for confirming! What is the reason for your return?'
+                secondRef.current.push('Thank you for confirming! What is the reason for your return?');
+                isInputDisabled.current = true;
             }
         }
-        else if(chatRef.current === 'Thank you for confirming! What is the reason for your return?'){
-            newChatHistory.push({
-                role: 'user',
-                message: e.target['user-input'].value
-            });
-            newChatHistory.push({
-                role: 'assistant',
-                message: 'Has the coffee been opened?'
-            });
-            secondRef.current.push('Has the coffee been opened?');
-        }
+        // else if(chatRef.current === 'Thank you for confirming! What is the reason for your return?'){
+        //     newChatHistory.push({
+        //         role: 'user',
+        //         message: e.target['user-input'].value
+        //     });
+        //     newChatHistory.push({
+        //         role: 'assistant',
+        //         message: 'Has the coffee been opened?'
+        //     });
+        //     secondRef.current.push('Has the coffee been opened?');
+        // }
         // else if(chatRef.current === 'Has the coffee been opened?'){
         //     newChatHistory.push({
         //         role: 'user',
@@ -130,6 +125,43 @@ export default function ChatBot(){
         setChatHistory(newChatHistory);
     };
 
+    const handleIsOpen = (selected) => {
+        const newChatHistory = [...chatHistory];
+        newChatHistory.push({
+            role: 'user',
+            message: selected
+        });
+
+        newChatHistory.push({
+            role: 'assistant',
+            message: 'We apologize for any inconvenience this might have caused you.'
+        });
+
+        newChatHistory.push({
+            role: 'assistant',
+            message: 'Since you are a valued customer, would you like a refund or credit towards your next purchase?'
+        });
+        
+        secondRef.current.push('Has the coffee been opened?');
+        setChatHistory(newChatHistory);
+    };
+
+    const handleIsRefund = (selected) => {
+        const newChatHistory = [...chatHistory];
+        newChatHistory.push({
+            role: 'user',
+            message: selected
+        });
+
+        newChatHistory.push({
+            role: 'assistant',
+            message: 'Thanks for confirming. You should receive an email confirmation shortly, including a shipping label for returning the coffee. Once we receive the package, we\'ll send a confirmation email with credit to your account '
+        });
+        
+        secondRef.current.push('Do you want to make any changes to your return?');
+        setChatHistory(newChatHistory);
+    };
+
     const handleSelect = (e) => {
         const newChatHistory = [...chatHistory];
 
@@ -142,6 +174,27 @@ export default function ChatBot(){
             role: 'user',
             message: e.target.value
         });
+        setChatHistory(newChatHistory);
+    };
+
+    const handleReason = (e) => {
+        const newChatHistory = [...chatHistory];
+
+        newChatHistory.push({
+            role: 'assistant',
+            message: 'Thank you for confirming! What is the reason for your return?'
+        });
+
+        newChatHistory.push({
+            role: 'user',
+            message: e.target.value
+        });
+
+        newChatHistory.push({
+            role: 'assistant',
+            message: 'Has the coffee been opened?'
+        });
+        secondRef.current.push('Thank you for confirming! What is the reason for your return?')
         setChatHistory(newChatHistory);
     };
 
@@ -223,14 +276,35 @@ export default function ChatBot(){
                                         <button className='button--vector'><span className='icon--vector'></span></button>
                                     </form>
                                 </div>
+                            }{
+                                secondRef.current.length === 1  &&
+                                <div className='message__dropdown'>
+                                <label className='message__label' htmlFor="item">Thank you for confirming! What is the reason for your return?</label>
+                                <select className='message__select' name="item" id="item" onChange={handleReason}>
+                                    <option className='message__option' value="" hidden>Select a reason to return</option>
+                                    <option className='message__option' value="Received incorrect item">Received incorrect item</option>
+                                    <option className='message__option' value="Expired Product">Expired Product</option>
+                                    <option className='message__option' value="Quality concerns">Quality concerns</option>
+                                    <option className='message__option' value="Damaged Packaging">Damaged Packaging</option>
+                                </select>
+                            </div>
                             }
                             {
-                                secondRef.current.length === 1  &&
+                                secondRef.current.length === 2  &&
                                 <div className='message__buttons'>
                                     <button className='message__button' onClick={() => handleIsOpen('Yes, it is opened')}>Yes, it is opened</button>
                                     <button className='message__button' onClick={() => handleIsOpen('No, it is unopened')}>No, it is unopened</button>
                                 </div>
                             }
+                            {
+                                secondRef.current.length === 3  &&
+                                <div className='message__buttons'>
+                                    <button className='message__button' onClick={() => handleIsRefund('Refund')}>Refund</button>
+                                    <button className='message__button' onClick={() => handleIsRefund('Credit')}>Credit</button>
+                                </div>
+                            }
+                            
+                            
                             <span ref={bottomScroll}></span>
                         </div>
                         <form className='chat__query' onSubmit={handleSubmit}>
