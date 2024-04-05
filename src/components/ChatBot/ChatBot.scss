@@ -1,4 +1,5 @@
 .overlay{
+    font-family: 'Roboto', sans-serif;
     background-color: rgba($color: #000000, $alpha: 0.25);
     height: 100vh;
     left: 0;
@@ -41,10 +42,12 @@
 
     &__message{
         flex-grow: 1;
+        overflow: auto;
     }
 
     &__query{
         position: relative;
+        padding-top: 2rem;
     }
 
     &__input{
@@ -69,7 +72,7 @@
     &__send-icon{
         border: none;
         background-color: inherit;
-        background-image: url('../../assets/icons/send.svg');
+        background-image: url('../../assets/icons/vector.svg');
         position: absolute;
         max-width: 1.5rem;
         min-width: 1.5rem;
@@ -78,7 +81,114 @@
         background-position: center;
         background-repeat: no-repeat;
         right: 0;
-        top: 0;
+        bottom: 0;
         margin-right: 0.75rem;
+    }
+}
+
+.message{
+    font-size: 0.875rem;
+    max-width: 16.3125rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ECECEC;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+
+    &:first-of-type{
+        margin-top: 0;
+    }
+
+    &__button{
+        border-radius: 30px;
+        border: 1px solid #3C7FEB; 
+        background-color: inherit;
+        padding: 0.5rem 1rem;
+    }
+
+    &__buttons{
+        margin-top: 2rem;
+        display: flex;
+        justify-content: right;
+        gap: 0.5rem;
+    }
+
+    &--right{
+        color: #FFF;
+        width: fit-content;
+        padding: 0.5rem;
+        background-color: #1773B0;
+        margin: 1rem 0 1rem auto;
+    }
+
+    &__dropdown{
+        border: 1px solid #ECECEC; 
+        padding: 0.5rem;
+        max-width: 17.375rem;
+
+        &:focus{
+            border: 1px solid #ECECEC;
+            outline: none;
+        }
+    }
+
+    &__select{
+        border: 1px solid #ECECEC; 
+        padding: 1rem 0.5rem;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+
+    &__checkboxes{
+        position: relative;
+        width: fit-content;
+        font-size: 0.875rem;
+        padding: 0.5rem;
+        border: 1px solid #ECECEC;
+        border-radius: 16px;
+    }
+
+    &__list{
+        list-style: none;
+        margin-top: 0.625rem;
+        border-radius: 16px;
+        border: 1px solid #ECECEC;
+    }
+
+    &__checkbox-container{
+        padding: 0.8125rem 1rem;
+        border-top: 1px solid #ECECEC;
+
+        &:first-of-type{
+            border-top: none;
+        }
+    }
+}
+
+.icon{
+    &--vector{
+        display: inline-flex;
+        min-width: 1.1875rem;
+        max-width: 1.1875rem;
+        min-height: 1.1875rem;
+        max-height: 1.1875rem;
+        background-image: url('../../assets/icons/vector.svg');
+        position: relative;
+        left: 2px;
+    }
+}
+
+.button{
+    &--vector{
+        position: absolute;
+        display: flex;
+        background-color: #F0F7FF;
+        padding: 0.5rem;
+        border-radius: 40px;
+        border: none;
+        align-items: center;
+        justify-content: center;
+        bottom: -10px;
+        right: -10px;
     }
 }
