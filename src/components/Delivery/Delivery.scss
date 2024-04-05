@@ -3,12 +3,12 @@
 @use "../../styles/partials/variables" as *;
 
 .delivery {
-    border: 1px solid black;
     border-radius: 0.5rem;
     @include padding;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    background-color: $Primary-white;
 
     &__container {
         display: flex;
