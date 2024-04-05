@@ -10,11 +10,16 @@
     @include padding;
     margin-top: 1.625rem;
 
+
     &__title {
         text-align: left;
         width: 100%;
-        margin: 0;
-        margin-top: 1.312rem;
+        margin: 1.312rem 0 0 0;
+
+    }
+
+    &__container {
+        width: 47%;
     }
 
     &__container:last-child {
@@ -23,8 +28,8 @@
 
     &__subheading {
         color: $Secondary-grey;
-        font-size: 1.1rem;
-        margin-bottom: 0.75rem;
+        font-size: 1rem;
+        margin: 2rem 0 0.75rem 0;
     }
 
     &__body {
@@ -41,8 +46,8 @@
     &__icon {
         border: 1px solid $Background-grey;
         padding: 0.25rem;
-        height: 0.75rem;
-        margin-right: 0.25rem;
+        height: 1.25rem;
+        margin-right: 0.4rem;
     }
 
 }

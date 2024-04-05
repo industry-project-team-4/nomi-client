@@ -19,7 +19,7 @@
 
     &__logo {
         width: 8rem;
-        height: 4rem
+        height: 3rem
     }
 
     &__info {
@@ -32,6 +32,7 @@
 
     &__title {
         margin-left: 3rem;
+        font-size: 1rem;
     }
 
     &__avatar {
@@ -48,6 +49,7 @@
         font-size: 1rem;
         color: $Primary-white;
         border-radius: 0.3rem;
+        margin-right: 4rem;
         background-color: $Primary-blue;
         border: 1px solid $Primary-blue;
     }
