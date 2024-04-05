@@ -30,12 +30,20 @@ export default function ChatBot(){
 
     const checkboxesRef = useRef([]);
     const bottomScroll = useRef();
-    const [isInputDisabled, setIsInputDisabled] = useState();
+    const isInputDisabled= useRef(true);
+    
+    const [inputValue, setInputValue] = useState(''); 
+    console.log(inputValue);
 
     const [chatHistory, setChatHistory] = useState([...initial]);
-    console.log(chatHistory);
+
+    const errorRef = useRef({});
 
     const chatRef = useRef(null);
+
+    const bindInput = (e) => {
+        setInputValue(e.target.value);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -106,6 +114,12 @@ export default function ChatBot(){
             });
             chatRef.current = 'You’re welcome, have a great day! ';
         }
+        else{
+            errorRef.current.input = {
+                isValid: false,
+                message: 'Must be a number'
+            };
+        }
         setChatHistory(newChatHistory);
         e.target.reset();
 
@@ -135,6 +149,10 @@ export default function ChatBot(){
         setChatHistory(newChatHistory);
     };
 
+    const removeError = () => {
+        errorRef.current = {};
+    }
+
     const handleCheckboxes = (e) => {
         e.preventDefault();
         for(let element of e.target.check){
@@ -160,7 +178,8 @@ export default function ChatBot(){
             role: 'assistant',
             message: `How many bags of ${currentitem} do you want to return out of the 40 bags?`
         });
-
+        
+        isInputDisabled.current = false;
         setChatHistory(newChatHistory);
     };
 
@@ -216,8 +235,8 @@ export default function ChatBot(){
                             <span ref={bottomScroll}></span>
                         </div>
                         <form className='chat__query' onSubmit={handleSubmit}>
-                            <input className='chat__input' type='text' placeholder='Type Here' name='user-input' />
-                            <button className='chat__send-icon'></button>
+                            <input className={`chat__input ${isInputDisabled.current ? 'chat__input--disabled' : ''}`} type='text' placeholder='Type Here' name='user-input' disabled={isInputDisabled.current} onChange={bindInput} />
+                            <button className={`chat__send-icon ${isInputDisabled.current ? 'chat__send-icon--disabled' : ''} ${!isInputDisabled.current && inputValue.length ? 'chat__send-icon--fill' : ''}`} disabled={isInputDisabled.current}></button>
                         </form>
                     </div>
                 </div>

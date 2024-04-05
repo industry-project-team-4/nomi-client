@@ -60,19 +60,43 @@
         width: 100%;
 
         &:focus{
+            background-color: #FFFFFF;
             outline: none;
-            border: 2px solid #1773B0;
+            border: 2px solid #0067DD;
+
+            &::placeholder{
+                color: #A6A6A6;
+            }
+        }
+
+        &:not(:disabled){
+            &:hover{
+                border: 2px solid #0067DD;
+            }
         }
 
         &::placeholder{
             color: #0067DD;
+        }
+
+        &--disabled{
+            background-color: #FAFAFA;
+            border: 2px solid #F2F2F2;
+        }
+
+        &--disabled::placeholder{
+            color: #A6A6A6;
+        }
+
+        &--error{
+            border: 2px solid #C94515;
         }
     }
 
     &__send-icon{
         border: none;
         background-color: inherit;
-        background-image: url('../../assets/icons/vector.svg');
+        background-image: url('../../assets/icons/send.svg');
         position: absolute;
         max-width: 1.5rem;
         min-width: 1.5rem;
@@ -83,6 +107,18 @@
         right: 0;
         bottom: 0;
         margin-right: 0.75rem;
+
+        &:disabled{
+            background-image: url('../../assets/icons/disable.svg');
+        }
+
+        &--fill{
+            max-width: 1.5rem;
+            min-width: 1.5rem;
+            max-height: 2.75rem;
+            min-height: 2.75rem;
+            background-image: url('../../assets/icons/vector.svg');
+        }
     }
 }
 
@@ -175,6 +211,27 @@
         background-image: url('../../assets/icons/vector.svg');
         position: relative;
         left: 2px;
+    }
+
+    &--error{
+        width: 0.875rem;
+        height: 0.875rem;
+        background-image: url('../../assets/icons/error-24px.svg');
+        display: inline-block;
+        background-position: center;
+        background-size: contain;
+    }
+}
+
+.error{
+    padding-left: 1rem;
+    display: none;
+    color: #C94515;
+    font-size: 0.75rem;
+
+    &--show{
+        display: flex;
+        border-radius: 2px solid #C94515;
     }
 }
 
