@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import './ChatBot.scss';
 
-export default function ChatBot({toggleChat}){
+export default function ChatBot({toggleChat, isOpen}){
+
+    const hide = isOpen ? '' : 'overlay--hidden'
 
     const initial = [
         {
@@ -159,6 +161,7 @@ export default function ChatBot({toggleChat}){
         });
         
         secondRef.current.push('Do you want to make any changes to your return?');
+        isInputDisabled.current = false;
         setChatHistory(newChatHistory);
     };
 
@@ -234,7 +237,7 @@ export default function ChatBot({toggleChat}){
 
     return (
         <>
-            <div className='overlay' onClick={toggleChat}>
+            <div className={`overlay ${hide}`} onClick={toggleChat}>
                 <div className='chat'>
                     <section className='chat__head'>
                         <h1 className='chat__store'>Bremance's</h1>
