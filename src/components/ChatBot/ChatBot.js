@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './ChatBot.scss';
 
-export default function ChatBot(){
+export default function ChatBot({toggleChat}){
 
     const initial = [
         {
@@ -198,6 +198,10 @@ export default function ChatBot(){
         setChatHistory(newChatHistory);
     };
 
+    const onBodyClick = (e) => {
+        e.stopPropagation();
+    };
+
     const handleCheckboxes = (e) => {
         e.preventDefault();
         for(let element of e.target.check){
@@ -230,13 +234,13 @@ export default function ChatBot(){
 
     return (
         <>
-            <div className='overlay'>
+            <div className='overlay' onClick={toggleChat}>
                 <div className='chat'>
                     <section className='chat__head'>
                         <h1 className='chat__store'>Bremance's</h1>
                         <p className='chat__description'>Return Support</p>
                     </section>
-                    <div className='chat__body'>
+                    <div className='chat__body' onClick={onBodyClick}>
                         <div className='chat__message'>
                             {
                                 chatHistory.map((chat, index) => {
