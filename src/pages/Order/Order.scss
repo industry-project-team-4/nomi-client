@@ -1,5 +1,18 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
 main {
     box-sizing: border-box;
     margin: 0;
     background-color: rgba(222, 222, 222, 0.336);
+    @include padding;
+}
+
+article {
+    display: flex;
+}
+
+.container {
+    width: 50%;
 }
