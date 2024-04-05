@@ -11,10 +11,10 @@ export default function Order() {
             <article>
                 <section className="container">
                     <Delivery />
+                    <OrderDetails />
                 </section>
                 <section className="container">
                     <Paid />
-                    <OrderDetails />
                 </section>
             </article>
         </main>

@@ -1,0 +1,33 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.order-details {
+    text-align: left;
+    flex-wrap: wrap;
+    background-color: $Primary-white;
+    border-radius: 0.5rem;
+    @include padding;
+    margin-top: 1.625rem;
+
+    &__title {
+        text-align: left;
+        width: 100%;
+        margin: 0;
+    }
+
+    &__container:last-child {
+        margin-left: 1.312rem;
+    }
+
+    &__subheading {
+        color: $Secondary-grey;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    &__body {
+        font-size: 1rem;
+        margin: 0 0 0.25rem 0;
+    }
+}
