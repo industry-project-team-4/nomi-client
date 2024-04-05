@@ -1,0 +1,14 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.order-header {
+    display: flex;
+    padding: 1.625rem 2.375rem;
+
+    &__container {}
+
+    &__container:last-child {
+        display: flex;
+    }
+}
