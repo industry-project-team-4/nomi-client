@@ -5,12 +5,12 @@ import down from "../../assets/chevronDown.svg"
 
 export default function Delivery() {
     return (
-        <>
+        <article className="delivery">
             <section className="delivery__container">
                 <img src={location} alt="location marker" className="delivery__icon" />
                 <h3 className="delivery__title">Delivered</h3>
             </section>
-            <section>
+            <section className="delivery__container">
                 <p className="delivery__subheading delivery__subheading--blue">Show Details</p>
                 <img src={down} alt="down marker" className="delivery__icon" />
             </section>
@@ -18,8 +18,11 @@ export default function Delivery() {
                 <img src={line} alt="line marker" className="delivery__icon" />
                 <p className="delivery__subheading">Oct 14</p>
             </section>
-            <p className="delivery__subheading">Haven't recieved your delivery?</p>
-            <p className="delivery__subheading delivery__subheading--blue">Let us know</p>
-        </>
+            <section className="delivery__container">
+                <p className="delivery__subheading">Haven't recieved your delivery?
+                    <span className="delivery__subheading delivery__subheading--blue"> Let us know</span>
+                </p>
+            </section>
+        </article>
     )
 }

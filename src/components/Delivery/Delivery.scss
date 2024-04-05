@@ -1,3 +1,49 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
+
+.delivery {
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    @include padding;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &__container {
+        display: flex;
+        width: 50%;
+        align-items: center;
+    }
+
+    &__container:nth-child(2) {
+        justify-content: end;
+    }
+
+    &__container:last-child {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__subheading {
+        margin: 0;
+
+        &--blue {
+            color: $Primary-blue;
+        }
+    }
+
+    &__icon {
+        width: 1rem;
+        height: 1.5rem;
+        margin-right: 0.5rem;
+
+        &--blue {}
+    }
+
+}
